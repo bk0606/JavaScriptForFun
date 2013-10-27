@@ -2,7 +2,7 @@
 window.onload = function () {
 	console.log('Factorial of 10: ' + factorial(10));
 	console.log('Fibonacci of 10: ' + findFibonacci(10));
-	var intArray = [3, 2, 5, 12, 32, 1];
+	var intArray = [3, 2, 3, 12, 54, 1, 1, 3];
 	var sortedArray = quickSort(Object.create(intArray));
 	console.log('Sort of array: %s  Result: %s', intArray.toString(), sortedArray.toString());
 };
@@ -29,18 +29,20 @@ function quickSort (intArr, _lPoint, _rPoint) {
 		// On the right find el-t lower then central
 		while (intArr[rInd] > intArr[baseInd]) { rInd--; }
 		// Then swap it, if nececcery
-	} while (lInd > rInd);
-	if (lInd < rInd) {
-		var tmpEl    = intArr[lInd];
-		intArr[lInd] = intArr[rInd];
-		intArr[rInd] = tmpEl;
-		// Divide array on two parts, & call recursivly
-		if (lPoint < rInd)
-			quickSort(intArr, lPoint, rInd);
-		if (lInd < rPoint)
-			quickSort(intArr, lInd, rPoint);
-	}
+		if (lInd <= rInd) {
+			var tmpEl    = intArr[lInd];
+			intArr[lInd] = intArr[rInd];
+			intArr[rInd] = tmpEl;
+			lInd++; rInd--;
+		}
+	} while (lInd < rInd);
+	// Divide array on two parts, & call recursivly
+	if (lPoint < rInd)
+		quickSort(intArr, lPoint, rInd);
+	if (lInd < rPoint)
+		quickSort(intArr, lInd, rPoint);
 	return intArr;
-};
+}
 
-	
+
+
