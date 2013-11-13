@@ -2,8 +2,8 @@
 window.onload = function () {
 	console.log('Factorial of 10: ' + factorial(10));
 	console.log('Fibonacci of 10: ' + findFibonacci(10));
-	var intArray = [3, 2, 3, 12, 54, 1, 1, 3];
-	var sortedArray = quickSort(Object.create(intArray));
+	var intArray = [3, 2, 3, 12, 54, 1, 1, 3, 2, 3, 12, 54, 1, 2, 3, 12, 54, 3];
+	var sortedArray = quickSort(intArray);
 	console.log('Sort of array: %s  Result: %s', intArray.toString(), sortedArray.toString());
 };
 
