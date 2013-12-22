@@ -1,7 +1,6 @@
-
 window.onload = function () {
 	var exlTable = new SimpleExcel('#simple-excel');
-    console.log(exlTable);
+	console.log(exlTable);
 };
 
 /**
