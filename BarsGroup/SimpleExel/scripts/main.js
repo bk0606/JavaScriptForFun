@@ -126,6 +126,6 @@ var SimpleExcel = (function () {
 	    }
 	}
 	
-	return construct;
-	})();
+return construct;
+})();
 	
