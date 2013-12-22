@@ -36,7 +36,6 @@ var SimpleExcel = (function () {
 		}
 		parent = document.querySelector(sParentSel);
 		controls = createControls();
-		controls.classList.add('excel-controls');
 		blankCol.innerHTML = '<input type="text">';
 		blankRow.appendChild(blankCol);
 		parent.appendChild(controls);
@@ -86,6 +85,7 @@ var SimpleExcel = (function () {
 		            '</button>';
 		}
 		controls.innerHTML = btns;
+		controls.classList.add('excel-controls');
 		controls.addEventListener('click', controlsHandler);
 		return controls;
 	}
