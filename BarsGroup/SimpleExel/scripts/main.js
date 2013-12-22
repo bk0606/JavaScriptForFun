@@ -26,7 +26,7 @@ var SimpleExcel = (function () {
         };
 
 	/** 
-	 * @param {string} sParentSel Selector to the point of attachment
+	 * @param {string} sParentSel Selector to the point of attachment.
 	 * @constructor 
 	 */
 	function construct(sParentSel) {
