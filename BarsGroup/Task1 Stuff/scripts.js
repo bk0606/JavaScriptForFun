@@ -2,9 +2,22 @@
 window.onload = function () {
 	console.log('Factorial of 10: ' + factorial(10));
 	console.log('Fibonacci of 10: ' + findFibonacci(10));
-	var intArray = [3, 2, 3, 12, 54, 1, 1, 3, 2, 3, 12, 54, 1, 2, 3, 12, 54, 3];
-	var sortedArray = quickSort(intArray);
-	console.log('Sort of array: %s  Result: %s', intArray.toString(), sortedArray.toString());
+
+	var intArray = [];
+
+	for (var i = 0; i < 10; i++) {
+		intArray[i]	= Math.floor(Math.random(1,1000)*1000);;
+	};
+
+	var sortedArray = Object.create(intArray);
+	console.log(intArray);
+	console.log(sortedArray);
+
+	console.log('Sort of array: %s  Result: %s', intArray.toString(), quickSort(sortedArray).toString());
+
+	console.time("QS");
+	quickSort(intArray);
+	console.timeEnd("QS");
 };
 
 function factorial (n) {
@@ -14,7 +27,7 @@ function factorial (n) {
 function findFibonacci (number, _preview, _current) {
 	var prev = _preview || 0;
 	var curr = _current || 1;
-	return number-1 === 0 ? curr : findFibonacci(number-1, curr, prev+curr);
+	return number-1 === 0 ? prev : findFibonacci(number-1, curr, prev+curr);
 }
 
 function quickSort (intArr, _lPoint, _rPoint) {

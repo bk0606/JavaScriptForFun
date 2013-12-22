@@ -1,6 +1,6 @@
 'use strict';
 window.onload = function () {
-	
+
     // Task №1
     var equation = new Polinome([0, 12, 4]);
     console.log("Task №1: " + equation.getPolinom());
@@ -14,7 +14,7 @@ window.onload = function () {
     console.log("Task №3: " + polinome.getPolinom());
 
     // Task №4
-	var fract = new Fraction();
+    var fract = new Fraction();
     fract.addFract(7, 3);
     fract.addFract(7, 8);
     console.log("Task №4: " + fract.getFract());
@@ -22,49 +22,48 @@ window.onload = function () {
 };
 
 // Task №1
-var Person = function(_name, _DOB) {
-    var name = _name;
-    var DOB  = _DOB;
-
-    this.getPersonInfo = function () {
-        return "Person " + name + " was born in " + DOB;
-    }
+function Person(persName, persDOB) {
+    this._name = persName;
+    this._DOB  = persDOB;
+}
+Person.prototype.getPersonInfo = function () {
+    return "Person " + this._name + " was born in " + this._DOB;
 };
+
 
 // Task №1, 3
-var Polinome = function(_coefArray) {
-    var polynomial = function(coefArray) {
-        var strPolinom = "";
-        for (var i = 0; i < coefArray.length; i++) {
-            if(coefArray[i] !== 0)
-                strPolinom += coefArray[i] + "*X" + i + "^" + i + " ";
-        };
-        return strPolinom;
-    }(_coefArray);
+function Polinome(cefficents) {
+    this._cefficents = cefficents;
+}
 
-    this.getPolinom = function() {
-        return polynomial;
-    };
+Polinome.prototype.getPolinom = function() {
+    var strPolinom = "";
+    for (var i = 0; i < this._cefficents.length; i++) {
+        if(this._cefficents[i] !== 0)
+            strPolinom += this._cefficents[i] + "*X" + i + "^" + i + " ";
+    }
+    return strPolinom;
 };
 
+
 // Task №4
-var Fraction = function() {
-    var fractArray = [];
+function Fraction() {
+    this._fractArray = [];
+}
+Fraction.prototype.reduse = function(numer, denomin) {
+    if (Math.floor(numer / denomin) === 0)
+        return numer  + "/" + denomin;
+    else
+        return Math.floor(numer / denomin) + "+" + (numer % denomin) + "/" + denomin;
+};
 
-    this.reduse = function(numer, denomin) {
-        if (Math.floor(numer / denomin) === 0) 
-            return numer  + "/" + denomin;
-        else
-            return Math.floor(numer / denomin) + "+" + (numer % denomin) + "/" + denomin;
-    };
+Fraction.prototype.addFract = function(numer, denomin) {
+    this._fractArray.push(this.reduse(numer, denomin));
+};
 
-    this.addFract = function(numer, denomin) {
-        fractArray.push(this.reduse(numer, denomin));
-    }
-    this.getFract = function(index) {
-        if (!!index || index === 0)
-            return fractArray[index];
-        else 
-            return fractArray;
-    };
+Fraction.prototype.getFract = function(index) {
+    if (!!index || index === 0)
+        return this._fractArray[index];
+    else
+        return this._fractArray;
 };

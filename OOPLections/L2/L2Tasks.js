@@ -8,7 +8,7 @@ window.onload = function () {
 	console.log("Координаты трёхугольника: " + triangle.getCoords());
 };
 
-var Point = function(iX, iY, iZ) {
+function Point(iX, iY, iZ) {
 	this.iX = iX;
 	this.iY = iY;
 	this.iZ = iZ;

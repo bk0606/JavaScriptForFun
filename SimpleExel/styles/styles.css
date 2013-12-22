@@ -1,0 +1,22 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.excel-table {
+	margin: 0 auto;
+    border: 1px solid;
+    width: 70%;
+}
+.excel-controls {
+    text-align: center;
+    margin: 20px;
+}
+.excel-controls button {
+    padding: 5px;
+    margin: 5px;
+}
+.excel-table td input[type='text'] {
+    width: 99%;
+    font:  bold 140% normal;
+}

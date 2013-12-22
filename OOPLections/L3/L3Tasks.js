@@ -14,7 +14,7 @@ window.onload = function () {
 	console.log("\nДерево экемпляров классов(плохо видно): ");
 	console.log(instTree);
 	// Don`t know how return brackets :(
-	console.log("\nМетод .Show(): " + instTree.Show() + "\n\nКак-то так, но скобки вернуть будет сложновато))");
+	console.log("\nМетод .Show(): " + instTree.Show() + "\n\nСкобки вернулись))");
 
 };
 
@@ -53,10 +53,10 @@ var Add = function(_ieFirstExp, _ieSecondExp) {
 	var fExp = _ieFirstExp;
 	var sExp = _ieSecondExp;
 	this.Diff = function() {
-		return fExp.Diff() + " + " + sExp.Diff();
+		return "("+fExp.Diff() + " + " + sExp.Diff()+")";
 	};
 	this.Show = function () {
-		return fExp.Show() + " + " + sExp.Show();
+		return "("+fExp.Show() + " + " + sExp.Show()+")";
 	};
 };
 Add.prototype = IExpression;
@@ -65,10 +65,10 @@ var Sub = function (_ieFirstExp, _ieSecondExp) {
 	var fExp = _ieFirstExp;
 	var sExp = _ieSecondExp;
 	this.Diff = function () {
-		return fExp.Diff() + " - " + sExp.Diff();
+		return "("+fExp.Diff() + " - " + sExp.Diff()+")";
 	};
 	this.Show = function () {
-		return fExp.Show() + " - " + sExp.Show();
+		return "("+fExp.Show() + " - " + sExp.Show()+")";
 	};
 };
 Sub.prototype = IExpression;
@@ -80,7 +80,7 @@ var Mul = function(ieFirstExp, ieSecondExp) {
 		// Some expression
 	};
 	this.Show = function () {
-		return fExp.Show() + " * " + sExp.Show();
+		return "("+fExp.Show() + " * " + sExp.Show()+")";
 	};
 };
 Mul.prototype = IExpression;
@@ -92,7 +92,7 @@ var Div = function(ieFirstExp, ieSecondExp) {
 		// Some expression
 	};
 	this.Show = function () {
-		return fExp.Show() + " / " + sExp.Show();
+		return "("+fExp.Show() + " / " + sExp.Show()+")";
 	};
 };
 Div.prototype = IExpression;
